@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  align-items: center;
+  margin-top: 150px;
+}
+.main{
+  display: flex;
+  width: 100vw;
+  height: 20vh;
+  align-items: end;
+  justify-content: center;
+}
+.profile {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 300px;
+  height: 400px;
+  background-image: url('../../Gallery/img/구름.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-info {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.gallery {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+}
+
+.gallery-img {
+  background-size: cover;
+  background-position: center;
+  height: 45vh;
+  width: 20vw;
+  margin-left: 1.5vw;
+  padding : 20px;
+}
+
+.galleryBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 160px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+/* 모달 배경 */
+.modal {
+  display: none; /* 기본적으로 숨김 */
+  position: fixed; /* 화면에 고정 */
+  width: 100vw; /* 화면 전체 */
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+/* 모달 콘텐츠 */
+.modal_popup {
+  max-width: 50%;
+  max-height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_img {
+  width: 30vw;
+  height: 80vh;
+}
