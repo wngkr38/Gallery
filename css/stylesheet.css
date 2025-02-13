@@ -1,7 +1,9 @@
 body {
-  height: 3000px;
+  height: 300vh;
   display: flex;
   flex-direction: column;
+  top:0;
+  bottom:0;
   align-items: center;
 }
 h1 {
@@ -16,64 +18,75 @@ h1 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20vh;
+  top:0;
 }
 .profile {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-  text-align: left;
-  flex-wrap: wrap;
+  text-align: center;
 }
 /*프로필 이미지*/
 .profile-img {
-  width: 300px;
-  height: 400px;
-  background-image: url('../../Gallery/img/구름.jpeg');
+  width: 30vw;
+  height: 70vh;
+  background-image: url('../../Gallery/img/프로필.jpeg');
   background-size: cover;
   background-position: center;
+  margin-top:10vh;
+  border-radius: 300px;
 }
 /*프로필 정보*/
 .profile-info {
-  width: 100px;
+  width: 30vw;
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  margin-top: 20vh;
 }
 
 .gallery {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  margin-left:17.5vw;
 }
 /*이미지*/
 .gallery-img {
-  background-size: cover;
   background-position: center;
-  height: 45vh;
+  height: 40vh;
   width: 20vw;
-  margin-left: 1.5vw;
-  padding : 20px;
+  margin: 0.5vh 0.2vw;
 }
 /*갤러리로 스크롤 내리는 버튼*/
 .galleryBtn {
-  position: relative;
   top:0;
-  right: 20px;
-  width: 160px;
-  height: 40px;
+  right: 1vw;
+  width: 5vw;
+  height: 4vh;
   font-size: 16px;
+  position: relative;
+  margin:2vh;
   background-color:transparent;
 }
 .profileBtn {
-  top: 0;
-  right: 20px;
-  width: 160px;
-  height: 40px;
+  top:0;
+  right: 1vw;
+  width: 5vw;
+  height: 4vh;
   font-size: 16px;
   position: relative;
+  margin:2vh;
+  background-color:transparent;
+}
+.mainBtn {
+  top:0;
+  right: 1vw;
+  width: 5vw;
+  height: 4vh;
+  font-size: 16px;
+  position: relative;
+  margin:2vh;
   background-color:transparent;
 }
 
@@ -82,6 +95,7 @@ h1 {
 .modal {
   display: none;
   position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
@@ -103,17 +117,18 @@ h1 {
   height: 80vh;
 }
 header {
-  height: 75px;
-  width: 100vw;
-  color: white;
-  /*background: teal;*/
+  width: 4vw;  /* 사이드바 너비 */
+  height: 100vh; /* 전체 높이 */
   font-weight: bold;
   display: flex;
-  justify-content: end;
-  align-items: end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 위쪽 정렬 */
   position: fixed;
-  top:0;
-  left: 0;
+  top: 0;
   right: 0;
+  bottom: 0;
+  padding: 20px;
 }
+
 
