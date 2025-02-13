@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:background-image="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>구름</title>
+  <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+<body>
+<div class="introduce">
+  <h2>안녕하세요</h2>
+  <h1>저희집 강아지 구름이를 소개합니다.</h1>
+
+</div>
+<div>
+  <header>
+  <nav>
+    <span>
+    <button class="profileBtn" onclick="moveProfile()">프로필</button>
+    </span>
+    <span>
+    <button class="galleryBtn" onclick="moveGallery()">갤러리</button>
+    </span>
+  </nav>
+  </header>
+</div>
+<h1>구름이 프로필</h1>
+<div class="profile">
+  <div class="profile-img"></div>
+  <div class="profile-info">
+    <h2>구름</h2>
+    <p>나이: 7살</p>
+    <p>길이: 15cm</p>
+    <p>몸무게: 3.6kg</p>
+    <p>성격: 활발함</p>
+    <p>취미: 짖기</p>
+  </div>
+</div>
+<script>
+  function moveGallery() { // 갤러리 스크롤
+    window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});
+  }
+  function moveProfile() { // 갤러리 스크롤
+    window.scrollTo({top: 1000, behavior: "smooth"});
+  }
+  function imgPopUp(element) { //이미지 팝업창 띄우기
+    const imgurl = element.getAttribute("src");
+    console.log(imgurl);
+    const modalImg = document.querySelector(".modal_img");
+    modalImg.setAttribute("src", imgurl);
+    const modal = document.querySelector(".modal");
+    modal.style.display = 'flex';
+    console.log(modalImg);
+  }
+  function modal_close(){ // 모달 끄기
+    const modal = document.querySelector(".modal");
+    modal.style.display = 'none';
+  }
+
+</script>
+
+<div class="gallery">
+  <img class="gallery-img" src="../../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름2.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름3.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+  <img class="gallery-img" src="../../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+</div>
+<div class="modal" onclick="modal_close()">
+  <div class="modal_popup">
+    <img class="modal_img" src="" >
+  </div>
+</div>
+</body>
+</html>
