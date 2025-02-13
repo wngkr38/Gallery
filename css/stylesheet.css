@@ -1,18 +1,22 @@
 body {
+  height: 3000px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 h1 {
   align-items: center;
-  margin-top: 150px;
+  /*margin-top: 150px;*/
 }
-.main{
-  display: flex;
+
+.introduce {
   width: 100vw;
-  height: 20vh;
-  align-items: end;
+  height: 100vh;
+  display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20vh;
 }
 .profile {
   width: 100vw;
@@ -22,7 +26,7 @@ h1 {
   text-align: left;
   flex-wrap: wrap;
 }
-
+/*프로필 이미지*/
 .profile-img {
   width: 300px;
   height: 400px;
@@ -30,7 +34,7 @@ h1 {
   background-size: cover;
   background-position: center;
 }
-
+/*프로필 정보*/
 .profile-info {
   width: 100px;
   display: flex;
@@ -42,9 +46,9 @@ h1 {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  grid-template-columns: repeat(4, 1fr);
 }
-
+/*이미지*/
 .gallery-img {
   background-size: cover;
   background-position: center;
@@ -53,26 +57,36 @@ h1 {
   margin-left: 1.5vw;
   padding : 20px;
 }
-
+/*갤러리로 스크롤 내리는 버튼*/
 .galleryBtn {
-  position: absolute;
-  top: 20px;
+  position: relative;
+  top:0;
   right: 20px;
   width: 160px;
   height: 40px;
   font-size: 16px;
-  border-radius: 5px;
+  background-color:transparent;
 }
+.profileBtn {
+  top: 0;
+  right: 20px;
+  width: 160px;
+  height: 40px;
+  font-size: 16px;
+  position: relative;
+  background-color:transparent;
+}
+
 
 /* 모달 배경 */
 .modal {
-  display: none; /* 기본적으로 숨김 */
-  position: fixed; /* 화면에 고정 */
-  width: 100vw; /* 화면 전체 */
+  display: none;
+  position: fixed;
+  width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
-  justify-content: center; /* 수평 중앙 정렬 */
-  align-items: center; /* 수직 중앙 정렬 */
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
 }
 
 /* 모달 콘텐츠 */
@@ -83,8 +97,23 @@ h1 {
   justify-content: center;
   align-items: center;
 }
-
+/*모달 이미지*/
 .modal_img {
   width: 30vw;
   height: 80vh;
 }
+header {
+  height: 75px;
+  width: 100vw;
+  color: white;
+  /*background: teal;*/
+  font-weight: bold;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+}
+
