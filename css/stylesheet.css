@@ -1,5 +1,6 @@
 body {
   height: 300vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   top:0;
@@ -49,7 +50,7 @@ h1 {
   height: 100vh;
   width: 100vw;
   display: grid;
-  margin-left:17.5vw;
+  margin-left: 10vw;
 }
 /*이미지*/
 .gallery-img {
@@ -67,6 +68,7 @@ h1 {
   font-size: 16px;
   position: relative;
   margin:2vh;
+  color:black;
   background-color:transparent;
 }
 .profileBtn {
@@ -77,6 +79,7 @@ h1 {
   font-size: 16px;
   position: relative;
   margin:2vh;
+  color:black;
   background-color:transparent;
 }
 .mainBtn {
@@ -87,6 +90,7 @@ h1 {
   font-size: 16px;
   position: relative;
   margin:2vh;
+  color:black;
   background-color:transparent;
 }
 
@@ -116,8 +120,8 @@ h1 {
   width: 30vw;
   height: 80vh;
 }
-header {
-  width: 4vw;  /* 사이드바 너비 */
+aside {
+  width: 5vw;  /* 사이드바 너비 */
   height: 100vh; /* 전체 높이 */
   font-weight: bold;
   display: flex;
@@ -129,6 +133,8 @@ header {
   right: 0;
   bottom: 0;
   padding: 20px;
+  overflow: hidden;
+
 }
 
 
