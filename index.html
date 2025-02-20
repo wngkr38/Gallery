@@ -77,13 +77,33 @@
         break;
     }
   }
-
   // 스크롤할 때마다 버튼 색상 업데이트
   window.addEventListener("scroll", updateButtonColor);
 
   // 초기 실행
   window.addEventListener("DOMContentLoaded", updateButtonColor);
+  function likeImage(imageId) {
+      let likeCountSpan = document.getElementById(`likeCount-${imageId}`);
+      let likeBtn = document.getElementById(`btn-${imageId}`);
 
+      if (!localStorage.getItem(`liked-${imageId}`)) { //이미지 좋아요를 눌렀는지 확인
+          let count = parseInt(localStorage.getItem(imageId) || 0) + 1;  // 현재 좋아요 개수를 가져오고 좋아요 1증가
+          localStorage.setItem(imageId, count); // 좋아요 개수를 로컬 스토리지에 저장
+          localStorage.setItem(`liked-${imageId}`, true);
+          likeCountSpan.innerText = count; // 좋아요 개수를 반영
+          likeBtn.disabled = true; // 좋아요 중복방지를 위해 버튼 비활성화
+      }
+  }
+
+  function loadLikes() { // 기존 좋아요 데이터 불러옴
+      document.querySelectorAll(".like-btn").forEach(btn => {
+          let imageId = btn.getAttribute("onclick").match(/'([^']+)'/)[1];
+          let likeCountSpan = document.getElementById(`likeCount-${imageId}`);
+          likeCountSpan.innerText = localStorage.getItem(imageId) || 0;
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", loadLikes); //페이지 불러오면 loadLikes 함수 실행
 </script>
 <body>
 <header class="introduce">
@@ -113,34 +133,51 @@
 <section class="gallery">
   <section>
     <figure>
+<!--      <div>-->
       <img class="gallery-img" src="../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름1')" id="btn-구름1">❤️ <span id="likeCount-구름1">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름2.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름2')" id="btn-구름2">❤️ <span id="likeCount-구름2">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름3.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름3')" id="btn-구름3">❤️ <span id="likeCount-구름3">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름4.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름4')" id="btn-구름4">❤️ <span id="likeCount-구름4">0</span></button>
     </figure>
   </section>
   <section>
     <figure>
       <img class="gallery-img" src="../Gallery/img/구름5.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름5')" id="btn-구름5">❤️ <span id="likeCount-구름5">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름6.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름6')" id="btn-구름6">❤️ <span id="likeCount-구름6">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름7.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름7')" id="btn-구름7">❤️ <span id="likeCount-구름7">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름8.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름8')" id="btn-구름8">❤️ <span id="likeCount-구름8">0</span></button>
     </figure>
   </section>
   <section>
     <figure>
       <img class="gallery-img" src="../Gallery/img/구름9.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름9')" id="btn-구름9">❤️ <span id="likeCount-구름9">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름10.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름10')" id="btn-구름10">❤️ <span id="likeCount-구름10">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름11.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름11')" id="btn-구름11">❤️ <span id="likeCount-구름11">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름12.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름12')" id="btn-구름12">❤️ <span id="likeCount-구름12">0</span></button>
     </figure>
   </section>
   <section>
     <figure>
       <img class="gallery-img" src="../Gallery/img/구름13.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름13')" id="btn-구름13">❤️ <span id="likeCount-구름13">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름14.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름14')" id="btn-구름14">❤️ <span id="likeCount-구름14">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름15.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름15')" id="btn-구름15">❤️ <span id="likeCount-구름15">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름16.jpeg" onclick="imgPopUp(this)">
+      <button class="like-btn" onclick="likeImage('구름16')" id="btn-구름16">❤️ <span id="likeCount-구름16">0</span></button>
     </figure>
   </section>
 </section>
