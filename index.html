@@ -43,9 +43,6 @@
 
     let scrollY = window.scrollY;
 
-    // const profileTop = document.querySelector(".profile").offsetTop;
-    // const galleryTop = document.querySelector(".gallery").offsetTop;
-
     mainBtn.style.backgroundColor = "white";
     profileBtn.style.backgroundColor = "white";
     galleryBtn.style.backgroundColor = "white";
@@ -84,22 +81,36 @@
   window.addEventListener("DOMContentLoaded", updateButtonColor);
   function likeImage(imageId) {
       let likeCountSpan = document.getElementById(`likeCount-${imageId}`);
+      let liked = localStorage.getItem(`liked-${imageId}`) === "true";
       let likeBtn = document.getElementById(`btn-${imageId}`);
-
-      if (!localStorage.getItem(`liked-${imageId}`)) { //이미지 좋아요를 눌렀는지 확인
-          let count = parseInt(localStorage.getItem(imageId) || 0) + 1;  // 현재 좋아요 개수를 가져오고 좋아요 1증가
-          localStorage.setItem(imageId, count); // 좋아요 개수를 로컬 스토리지에 저장
-          localStorage.setItem(`liked-${imageId}`, true);
-          likeCountSpan.innerText = count; // 좋아요 개수를 반영
-          likeBtn.disabled = true; // 좋아요 중복방지를 위해 버튼 비활성화
+      let count = parseInt(localStorage.getItem(`count-${imageId}`)) || 0;
+      if (liked && count > 0) { //이미지 좋아요를 눌렀는지 확인
+          count -= 1;
+          localStorage.setItem(`liked-${imageId}` , "false");
+          likeBtn.classList.remove("liked"); //좋아요를 취소하기 때문에 liked CSS를 삭제
+          console.log("감소");
+      }else{
+          count += 1;
+          localStorage.setItem(`liked-${imageId}` , "true");
+          console.log("증가");
+          likeBtn.classList.add("liked");// 좋아요를 누르면 opacity가 1이 되는 liked CSS를 추가
       }
+      localStorage.setItem(`count-${imageId}`, count);
+      likeCountSpan.innerText = count;
   }
 
   function loadLikes() { // 기존 좋아요 데이터 불러옴
       document.querySelectorAll(".like-btn").forEach(btn => {
           let imageId = btn.getAttribute("onclick").match(/'([^']+)'/)[1];
           let likeCountSpan = document.getElementById(`likeCount-${imageId}`);
-          likeCountSpan.innerText = localStorage.getItem(imageId) || 0;
+          let liked = localStorage.getItem(`liked-${imageId}`) === "true";
+          likeCountSpan.innerText = localStorage.getItem(`count-${imageId}`) || 0;
+          if(liked){ // 좋아요를 눌렀다면 클래스에 liked를 눌러서 투명도 설정
+              btn.classList.add("liked");
+          }else{
+              btn.classList.remove("liked");
+          }
+
       });
   }
 
@@ -133,7 +144,6 @@
 <section class="gallery">
   <section>
     <figure>
-<!--      <div>-->
       <img class="gallery-img" src="../Gallery/img/구름.jpeg" onclick="imgPopUp(this)">
       <button class="like-btn" onclick="likeImage('구름1')" id="btn-구름1">❤️ <span id="likeCount-구름1">0</span></button>
       <img class="gallery-img" src="../Gallery/img/구름2.jpeg" onclick="imgPopUp(this)">
