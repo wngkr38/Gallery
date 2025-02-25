@@ -8,8 +8,9 @@ body {
   align-items: center;
   font-family: Arial,sans-serif;
 }
-h1 {
-  align-items: center;
+h2 {
+    align-items: center;
+    font-size: clamp(8px , 2vw , 24px);
 }
 
 .introduce {
@@ -146,6 +147,7 @@ aside {
   bottom: 0;
   padding: 20px;
   overflow: hidden;
+    z-index: 20;
 }
 
 .like-btn {
