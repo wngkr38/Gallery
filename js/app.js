@@ -3,7 +3,7 @@
   const target = document.querySelector(selector);
   if(target) {
   window.scrollTo({top: target.offsetTop, behavior: "smooth"});
-}
+  }
 }
 
   function imgPopUp(element) { //이미지 팝업창 띄우기
